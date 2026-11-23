@@ -41,10 +41,23 @@ function download(name, txt, mime = "application/json") {
 /* ---------- state ---------- */
 const S = { profile: null, cv: null, pubRep: [], pubMedia: [], rep: [], media: [] };
 const CAT_ORDER = ["baroque", "classical", "romantic", "modern", "opera", "neoclassical", "film", "musical", "jazz", "latin", "pop", "rock", "soul", "folk"];
-/* hidden export-only grouping (14 categories -> 10 genres); a work can override it with its own "exportGenre" */
-const EXPORT_ORDER = ["Baroque & Classical", "Romantic", "20th Century & Neoclassical", "Opera & Musicals", "Film, TV & Games", "Jazz & Soul", "Latin", "Pop", "Rock", "Folk & Traditional"];
-const EXPORT_GENRE = { baroque: 0, classical: 0, romantic: 1, modern: 2, neoclassical: 2, opera: 3, musical: 3, film: 4, jazz: 5, soul: 5, latin: 6, pop: 7, rock: 8, folk: 9 };
-const exportGenre = w => w.exportGenre || EXPORT_ORDER[EXPORT_GENRE[w.category]] || "Other";
+/* hidden export-only grouping; a work can override it with its own "exportGenre" */
+const EXPORT_ORDER = ["CLASSICAL MUSIC", "JAZZ & SWING", "POP & CONTEMPORARY HITS", "POP CLASSICS & OLDIES", "SOUL, MOTOWN & R&B", "LATIN & CARIBBEAN MUSIC", "FILM & MUSICAL SOUNDTRACKS", "DISNEY & ANIMATED CLASSICS", "INTERNATIONAL & WORLD MUSIC", "CHRISTMAS & SEASONAL MUSIC"];
+const exportGenre = w => {
+  if (w.exportGenre) return w.exportGenre;
+  const t = w.tags || [], c = w.category, has = x => t.includes(x), G = EXPORT_ORDER;
+  if (has("christmas")) return G[9];
+  if (has("animation")) return G[7];
+  if (["baroque", "classical", "romantic", "modern", "opera"].includes(c)) return G[0];
+  if (["french", "ukrainian", "asian", "middle-east", "children"].some(has)) return G[8];
+  if (c === "jazz") return G[1];
+  if (c === "pop" || c === "rock") return (w.year || 9999) < 2000 ? G[3] : G[2];
+  if (c === "soul") return G[4];
+  if (c === "latin") return G[5];
+  if (c === "film" || c === "musical") return G[6];
+  if (c === "folk") return G[8];
+  return G[0];
+};
 const exportOn = () => /[?&]export=true(?:&|#|$)/.test(location.search + location.hash);
 const GROUPS = [["category", "f_category", "cat_"], ["format", "f_format", "fmt_"], ["status", "f_status", "st_"], ["tags", "f_tags", "tag_"]];
 const F = Object.assign({ q: "", category: [], format: [], status: [], tags: [], sort: "composer" }, store.get("filters", {}));
@@ -166,11 +179,11 @@ function exportMd() {
   const coll = new Intl.Collator("en"), by = new Map();
   S.rep.forEach(w => { const g = exportGenre(w); by.has(g) || by.set(g, []); by.get(g).push(w); });
   const genres = [...by.keys()].sort((a, b) => ((EXPORT_ORDER.indexOf(a) + 1) || 99) - ((EXPORT_ORDER.indexOf(b) + 1) || 99));
-  return genres.map(g => {
+  return `---\ntitle: "VERONIKA HRYHORASH"\nsubtitle: "PIANO REPERTOIRE"\n---\n\n` + genres.map(g => {
     const au = new Map();
     by.get(g).slice().sort((a, b) => coll.compare(surname(a), surname(b)) || coll.compare(a.title.en || "", b.title.en || ""))
       .forEach(w => { const k = w.composer.en || L(w.composer); au.has(k) || au.set(k, []); au.get(k).push(w.title.en || L(w.title)); });
-    return `# ${g}\n\n` + [...au].map(([a, ts]) => `## ${a}\n\n${ts.map(x => "- " + x).join("\n")}\n`).join("\n");
+    return `# ${EXPORT_ORDER.includes(g) ? EXPORT_ORDER.indexOf(g) + 1 + ". " : ""}${g}\n\n` + [...au].map(([a, ts]) => `## ${a}\n\n${ts.map(x => "- " + x).join("\n")}\n`).join("\n");
   }).join("\n");
 }
 {
