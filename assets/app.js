@@ -173,12 +173,13 @@ function tile(m, i) {
   if (m.type === "video") {
     const v = videoOf(m); if (!v) return "";
     if (v.kind === "file") return `<figure class="tile"><div class="video"><video controls preload="metadata" src="${esc(v.src)}"${m.poster ? ` poster="${esc(m.poster)}"` : ""}></video></div>${fc}</figure>`;
-    const poster = m.poster || (v.kind === "yt" ? `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg` : "");
+    const short = v.kind === "yt" && /\/shorts\//.test(m.youtube), vc = short ? "video short" : "video";
+    const poster = m.poster || (v.kind === "yt" ? `https://i.ytimg.com/vi/${v.id}/${short ? "oar2" : "hqdefault"}.jpg` : "");
     if (m.embed === false) { // the owner or a copyright claim blocks playback on other sites: open it on YouTube/Vimeo instead
       const href = v.kind === "yt" ? `https://www.youtube.com/watch?v=${v.id}` : `https://vimeo.com/${v.id}`;
-      return `<figure class="tile"><a class="video" href="${href}" target="_blank" rel="noopener">${poster ? `<img src="${esc(poster)}" alt="" loading="lazy">` : ""}<span class="play" aria-hidden="true">${PLAY}</span><span class="sr">${esc(t("play") + (cap ? ": " + cap : ""))}</span></a>${fc}</figure>`;
+      return `<figure class="tile"><a class="${vc}" href="${href}" target="_blank" rel="noopener">${poster ? `<img src="${esc(poster)}" alt="" loading="lazy">` : ""}<span class="play" aria-hidden="true">${PLAY}</span><span class="sr">${esc(t("play") + (cap ? ": " + cap : ""))}</span></a>${fc}</figure>`;
     }
-    return `<figure class="tile"><div class="video" data-video="${i}">${poster ? `<img src="${esc(poster)}" alt="" loading="lazy">` : ""}<button type="button" class="play" data-play="${i}" aria-label="${esc(t("play") + (cap ? ": " + cap : ""))}">${PLAY}</button></div>${fc}</figure>`;
+    return `<figure class="tile"><div class="${vc}" data-video="${i}">${poster ? `<img src="${esc(poster)}" alt="" loading="lazy">` : ""}<button type="button" class="play" data-play="${i}" aria-label="${esc(t("play") + (cap ? ": " + cap : ""))}">${PLAY}</button></div>${fc}</figure>`;
   }
   const pi = photos.indexOf(m);
   return `<figure class="tile"><button type="button" class="ph" data-lb="${pi}" aria-label="${esc(cap || t("m_photo"))}"><img src="${esc(m.src)}" alt="${esc(cap)}" loading="lazy"></button>${fc}</figure>`;
