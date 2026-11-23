@@ -1,0 +1,139 @@
+{
+  "sample": false,
+  "pdf": "",
+  "summary": {
+    "en": "Classically trained pianist (National Music Academy of Ukraine, Kyiv) and laureate of international and Ukrainian competitions. Since 2018 she has worked as a cruise and hotel pianist on Royal Caribbean, Aroya, Saga, Silversea and Ponant, and at the Ritz-Carlton Osaka: solo sets, piano quartet, accompanying singers and shows with violin and dancers. Also a piano and singing teacher.",
+    "es": "Pianista de formación clásica (Academia Nacional de Música de Ucrania, Kiev) y laureada en concursos internacionales y ucranianos. Desde 2018 trabaja como pianista en cruceros y hoteles: Royal Caribbean, Aroya, Saga, Silversea, Ponant y el Ritz-Carlton de Osaka. Ofrece conciertos en solitario, cuarteto con piano, acompañamiento a cantantes y espectáculos con violín y bailarines. También es profesora de piano y canto.",
+    "uk": "Піаністка з класичною освітою (Національна музична академія України, Київ), лауреатка міжнародних та українських конкурсів. З 2018 року працює піаністкою на круїзних лайнерах і в готелях: Royal Caribbean, Aroya, Saga, Silversea, Ponant, Ritz-Carlton в Осаці. Сольні програми, фортепіанний квартет, акомпанемент вокалістам, шоу зі скрипкою та танцюристами. Також викладає фортепіано та спів."
+  },
+  "sections": [
+    {
+      "title": { "en": "Experience", "es": "Experiencia", "uk": "Досвід роботи" },
+      "items": [
+        {
+          "years": "04/2026 – 11/2026",
+          "title": { "en": "Intermissionist piano / Assistant musical director", "es": "Pianista de intermedios / Directora musical adjunta", "uk": "Піаністка-інтермішіоністка / Асистентка музичного директора" },
+          "place": { "en": "Royal Caribbean", "es": "Royal Caribbean", "uk": "Royal Caribbean" }
+        },
+        {
+          "years": "01/2025 – 11/2025",
+          "title": { "en": "Classical pianist", "es": "Pianista clásica", "uk": "Піаністка (класичний репертуар)" },
+          "place": { "en": "Aroya Cruise, Saudi Arabia", "es": "Aroya Cruise, Arabia Saudí", "uk": "Aroya Cruise, Саудівська Аравія" },
+          "note": {
+            "en": "Live music onboard during dining, cocktail hours and special events. Worked with violin and dancers.",
+            "es": "Música en directo a bordo durante cenas, cócteles y eventos especiales. Colaboración con violín y bailarines.",
+            "uk": "Жива музика на борту під час вечері, коктейль-годин і особливих подій. Співпраця зі скрипалем і танцюристами."
+          }
+        },
+        {
+          "years": "11/2023 – 04/2024",
+          "title": { "en": "Pianist, Felicity Piano Quartet", "es": "Pianista, Felicity Piano Quartet", "uk": "Піаністка, Felicity Piano Quartet" },
+          "place": { "en": "Saga Cruises, UK", "es": "Saga Cruises, Reino Unido", "uk": "Saga Cruises, Велика Британія" },
+          "note": {
+            "en": "Member of the quartet on a British cruise line, plus a solo piano recital in the onboard entertainment programme.",
+            "es": "Integrante del cuarteto en una naviera británica, además de un recital de piano en solitario dentro del programa de entretenimiento.",
+            "uk": "Учасниця квартету на британській круїзній лінії та сольний фортепіанний концерт у розважальній програмі лайнера."
+          }
+        },
+        {
+          "years": "05/2022 – 08/2023",
+          "title": { "en": "Cocktail pianist", "es": "Pianista de cóctel", "uk": "Коктейль-піаністка" },
+          "place": { "en": "Silversea Cruises, USA", "es": "Silversea Cruises, EE. UU.", "uk": "Silversea Cruises, США" },
+          "note": {
+            "en": "Solo sets and the show Voce del Opera with singers. Accompanied guests on shore excursions.",
+            "es": "Sesiones en solitario y el espectáculo Voce del Opera con cantantes. Acompañamiento a los huéspedes en excursiones.",
+            "uk": "Сольні сети та шоу Voce del Opera з вокалістами. Супровід гостей на екскурсіях."
+          }
+        },
+        {
+          "years": "01/2022 – 05/2022",
+          "title": { "en": "Pianist, Lirica Quartet", "es": "Pianista, Lirica Quartet", "uk": "Піаністка, Lirica Quartet" },
+          "place": { "en": "Saga Cruises, UK", "es": "Saga Cruises, Reino Unido", "uk": "Saga Cruises, Велика Британія" },
+          "note": {
+            "en": "Shows with the Lirica piano quartet, solo sets, accompanying guests on shore excursions.",
+            "es": "Espectáculos con el cuarteto con piano Lirica, sesiones en solitario y acompañamiento a huéspedes en excursiones.",
+            "uk": "Шоу у складі фортепіанного квартету Lirica, сольні сети, супровід гостей на екскурсіях."
+          }
+        },
+        {
+          "years": "12/2021 – 01/2022",
+          "title": { "en": "Classical pianist", "es": "Pianista clásica", "uk": "Піаністка (класичний репертуар)" },
+          "place": { "en": "InterContinental Al Khobar, Saudi Arabia", "es": "InterContinental Al Khobar, Arabia Saudí", "uk": "InterContinental Al Khobar, Саудівська Аравія" },
+          "note": { "en": "Celebrations and events.", "es": "Celebraciones y eventos.", "uk": "Святкові та корпоративні події." }
+        },
+        {
+          "years": "12/2019 – 05/2020",
+          "title": { "en": "Pianist", "es": "Pianista", "uk": "Піаністка" },
+          "place": { "en": "Ritz-Carlton, Osaka, Japan", "es": "Ritz-Carlton, Osaka, Japón", "uk": "Ritz-Carlton, Осака, Японія" },
+          "note": {
+            "en": "Five-star hotel; performed as the duo Black and White at celebrations and events.",
+            "es": "Hotel de cinco estrellas; actuó como dúo Black and White en celebraciones y eventos.",
+            "uk": "П’ятизірковий готель; виступала в дуеті Black and White на святах і подіях."
+          }
+        },
+        {
+          "years": "12/2018 – 03/2019",
+          "title": { "en": "Classical pianist", "es": "Pianista clásica", "uk": "Піаністка (класичний репертуар)" },
+          "place": { "en": "Ponant, France (Antarctica, Chile, Argentina)", "es": "Ponant, Francia (Antártida, Chile, Argentina)", "uk": "Ponant, Франція (Антарктида, Чилі, Аргентина)" },
+          "note": {
+            "en": "French expedition cruise ship. Shows with a violinist, singers, dancers and crew; her own classical piano concert; taught onboard.",
+            "es": "Crucero de expedición francés. Espectáculos con violinista, cantantes, bailarines y tripulación; concierto de piano clásico propio; clases a bordo.",
+            "uk": "Французький експедиційний лайнер. Шоу зі скрипалем, співаками, танцюристами та екіпажем; власний класичний концерт; викладання на борту."
+          }
+        }
+      ]
+    },
+    {
+      "title": { "en": "Education", "es": "Formación", "uk": "Освіта" },
+      "items": [
+        {
+          "years": "2014 – 2018",
+          "title": { "en": "Bachelor, piano", "es": "Grado, piano", "uk": "Бакалавр, фортепіано" },
+          "place": {
+            "en": "National Music Academy of Ukraine named after P. Tchaikovsky, Kyiv",
+            "es": "Academia Nacional de Música de Ucrania P. Chaikovski, Kiev",
+            "uk": "Національна музична академія України імені П. І. Чайковського, Київ"
+          },
+          "note": {
+            "en": "Soloist, duo, trio and quartet; with violin, flute, clarinet and orchestra; concertmaster. Took part in Ukrainian festivals. Laureate of international and Ukrainian competitions.",
+            "es": "Solista, dúo, trío y cuarteto; con violín, flauta, clarinete y orquesta; pianista acompañante. Participó en festivales ucranianos. Laureada en concursos internacionales y ucranianos.",
+            "uk": "Солістка, дует, тріо, квартет; зі скрипкою, флейтою, кларнетом та оркестром; концертмейстерка. Учасниця українських фестивалів. Лауреатка міжнародних та українських конкурсів."
+          }
+        },
+        {
+          "years": "2008 – 2014",
+          "title": { "en": "Specialist, piano", "es": "Especialista, piano", "uk": "Спеціаліст, фортепіано" },
+          "place": {
+            "en": "Lysenko Special Music College, Kyiv",
+            "es": "Colegio Especial de Música M. Lýsenko, Kiev",
+            "uk": "Спеціалізована музична школа-інтернат імені М. В. Лисенка, Київ"
+          },
+          "note": {
+            "en": "Piano solo, duo with violin, concertmaster.",
+            "es": "Piano solo, dúo con violín, pianista acompañante.",
+            "uk": "Фортепіано соло, дует зі скрипкою, концертмейстерка."
+          }
+        }
+      ]
+    },
+    {
+      "title": { "en": "Skills", "es": "Competencias", "uk": "Навички" },
+      "items": [
+        { "years": "", "title": { "en": "Piano and singing teacher", "es": "Profesora de piano y canto", "uk": "Викладачка фортепіано та співу" }, "place": { "en": "", "es": "", "uk": "" } },
+        { "years": "", "title": { "en": "Professional sight-reading", "es": "Lectura a primera vista profesional", "uk": "Професійне читання з аркуша" }, "place": { "en": "", "es": "", "uk": "" } },
+        { "years": "", "title": { "en": "Music theory and solfège teaching", "es": "Enseñanza de teoría musical y solfeo", "uk": "Викладання теорії музики та сольфеджіо" }, "place": { "en": "", "es": "", "uk": "" } },
+        { "years": "", "title": { "en": "Events, concerts and shows; solo and with other musicians", "es": "Eventos, conciertos y espectáculos; en solitario y con otros músicos", "uk": "Івенти, концерти й шоу; соло та з іншими музикантами" }, "place": { "en": "", "es": "", "uk": "" } },
+        { "years": "", "title": { "en": "Organising monthly concerts", "es": "Organización de conciertos mensuales", "uk": "Організація щомісячних концертів" }, "place": { "en": "", "es": "", "uk": "" } },
+        { "years": "", "title": { "en": "Socialising with guests, accompanying them on excursions", "es": "Trato con los huéspedes y acompañamiento en excursiones", "uk": "Спілкування з гостями, супровід на екскурсіях" }, "place": { "en": "", "es": "", "uk": "" } }
+      ]
+    },
+    {
+      "title": { "en": "Languages", "es": "Idiomas", "uk": "Мови" },
+      "items": [
+        { "years": "", "title": { "en": "Ukrainian, Russian: native", "es": "Ucraniano, ruso: lengua materna", "uk": "Українська, російська: рідні" }, "place": { "en": "", "es": "", "uk": "" } },
+        { "years": "", "title": { "en": "English: advanced", "es": "Inglés: avanzado", "uk": "Англійська: просунутий рівень" }, "place": { "en": "", "es": "", "uk": "" } },
+        { "years": "", "title": { "en": "Spanish: pre-intermediate", "es": "Español: nivel pre-intermedio", "uk": "Іспанська: нижче середнього" }, "place": { "en": "", "es": "", "uk": "" } }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Veronika Hryhorash, pianist</title>
+<meta name="description" content="Veronika Hryhorash, pianist: repertoire, photo and video, CV and contact.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prata&family=Golos+Text:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <a class="brand" href="#home" data-name></a>
+  <nav class="nav" aria-label="Main">
+    <a href="#home" data-route="home" data-t="nav_home">Home</a>
+    <a href="#repertoire" data-route="repertoire" data-t="nav_rep">Repertoire</a>
+    <a href="#media" data-route="media" data-t="nav_media">Photo &amp; video</a>
+    <a href="#cv" data-route="cv" data-t="nav_cv">CV</a>
+    <button type="button" class="linkish" data-contact data-t="nav_contact">Contact</button>
+  </nav>
+  <div class="lang" role="group" aria-label="Language">
+    <button type="button" data-lang="en">EN</button>
+    <button type="button" data-lang="es">ES</button>
+    <button type="button" data-lang="uk">UA</button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <!-- HOME -->
+  <section class="view" data-view="home">
+    <div class="hero band">
+      <p class="role" data-role></p>
+      <h1 class="name" data-name-lines></h1>
+      <div class="hero-foot">
+        <p class="tagline" data-tagline></p>
+        <figure class="portrait" data-portrait hidden></figure>
+      </div>
+    </div>
+    <div class="keys-wrap">
+      <div class="keys" id="keys" aria-hidden="true"></div>
+      <p class="keys-hint" data-t="keys_hint">Play a few notes</p>
+    </div>
+
+    <div class="band split">
+      <h2 data-t="about">About</h2>
+      <div class="prose" data-bio></div>
+    </div>
+
+    <div class="band split">
+      <h2 data-t="featured">From the repertoire</h2>
+      <div>
+        <ul class="works" data-featured></ul>
+        <a class="more" href="#repertoire" data-t="full_rep">See the full repertoire</a>
+      </div>
+    </div>
+
+    <div class="band split">
+      <h2 data-t="latest_media">Photo and video</h2>
+      <div>
+        <div class="strip" data-media-preview></div>
+        <a class="more" href="#media" data-t="all_media">Open the gallery</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REPERTOIRE -->
+  <section class="view" data-view="repertoire" hidden>
+    <div class="band page-head">
+      <h1 data-t="rep_title">Repertoire</h1>
+      <p class="lede" data-t="rep_intro"></p>
+      <p class="stats" data-stats aria-live="polite"></p>
+    </div>
+    <div class="band rep">
+      <aside class="filters" aria-label="Filters">
+        <label class="field">
+          <span data-t="search_label">Search</span>
+          <input type="search" id="q" autocomplete="off">
+        </label>
+        <div data-filter-groups></div>
+        <label class="field">
+          <span data-t="sort">Sort</span>
+          <select id="sort">
+            <option value="composer" data-t="sort_composer">By composer</option>
+            <option value="year" data-t="sort_year">By year written</option>
+            <option value="duration" data-t="sort_duration">By length</option>
+          </select>
+        </label>
+        <button type="button" class="ghost" id="reset" data-t="reset">Clear filters</button>
+      </aside>
+      <div class="rep-list" data-rep-list></div>
+    </div>
+    <div class="prog" data-prog hidden>
+      <p><strong data-prog-count></strong> <span data-prog-time></span></p>
+      <div class="prog-actions">
+        <button type="button" class="solid" data-prog-copy data-t="prog_copy">Copy programme</button>
+        <button type="button" class="ghost light" data-prog-clear data-t="prog_clear">Clear</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEDIA -->
+  <section class="view" data-view="media" hidden>
+    <div class="band page-head">
+      <h1 data-t="media_title">Photo and video</h1>
+      <div class="tabs" role="group" aria-label="Media type">
+        <button type="button" data-mtab="all" data-t="m_all">All</button>
+        <button type="button" data-mtab="photo" data-t="m_photo">Photos</button>
+        <button type="button" data-mtab="video" data-t="m_video">Video</button>
+      </div>
+    </div>
+    <div class="band"><div class="gallery" data-gallery></div></div>
+  </section>
+
+  <!-- CV -->
+  <section class="view" data-view="cv" hidden>
+    <div class="band page-head">
+      <h1 data-t="cv_title">Curriculum vitae</h1>
+      <p class="lede" data-cv-summary></p>
+      <div class="cv-actions">
+        <a class="solid" data-cv-pdf hidden download data-t="cv_pdf">Download CV as PDF</a>
+        <button type="button" class="ghost" data-cv-print data-t="cv_print">Print this page</button>
+      </div>
+      <p class="note" data-cv-sample hidden data-t="sample_note"></p>
+    </div>
+    <div data-cv></div>
+  </section>
+
+  <!-- EDITOR (not linked in navigation: open #edit) -->
+  <section class="view" data-view="edit" hidden>
+    <div class="band page-head">
+      <h1 data-t="edit_title">Edit content</h1>
+      <p class="lede" data-t="edit_intro"></p>
+    </div>
+    <div class="band" data-editor></div>
+  </section>
+</main>
+
+<footer class="foot band" id="contact">
+  <div class="foot-grid">
+    <div>
+      <h2 data-t="contact_title">Get in touch</h2>
+      <p data-t="contact_text"></p>
+    </div>
+    <div>
+      <a class="email" data-email></a>
+      <p class="muted-light" data-location></p>
+      <ul class="links" data-links></ul>
+    </div>
+  </div>
+  <p class="note light" data-profile-sample hidden data-t="sample_note"></p>
+  <p class="copy">© <span data-year></span> <span data-name></span></p>
+</footer>
+
+<div class="lightbox" data-lightbox hidden role="dialog" aria-modal="true">
+  <button type="button" class="lb-close" data-lb-close aria-label="Close">×</button>
+  <button type="button" class="lb-nav prev" data-lb-prev aria-label="Previous">‹</button>
+  <figure><img alt=""><figcaption></figcaption></figure>
+  <button type="button" class="lb-nav next" data-lb-next aria-label="Next">›</button>
+</div>
+
+<div class="toast" data-toast role="status" hidden></div>
+
+<script src="assets/i18n.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

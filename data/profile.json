@@ -1,0 +1,34 @@
+{
+  "sample": true,
+  "name": { "en": "Veronika Hryhorash", "es": "Veronika Hryhorash", "uk": "Вероніка Григораш" },
+  "role": { "en": "Pianist", "es": "Pianista", "uk": "Піаністка" },
+  "tagline": {
+    "en": "Classical piano, and the music that lives beside it: film scores, jazz, tango and new Ukrainian works.",
+    "es": "Piano clásico y la música que vive a su lado: bandas sonoras, jazz, tango y nueva música ucraniana.",
+    "uk": "Класичне фортепіано й музика поруч із ним: кіно, джаз, танго та нова українська музика."
+  },
+  "bio": {
+    "en": [
+      "Veronika Hryhorash is a pianist whose home ground is the classical repertoire, from Bach and Mozart to Chopin, Rachmaninoff and Prokofiev.",
+      "She is just as curious about what lies beyond it. Her programmes move between the concert hall and film music, jazz standards and tango, and give a regular place to Ukrainian composers, from Lysenko to Silvestrov and Skoryk.",
+      "She performs solo recitals, chamber music and concertos, and is open to collaborations, private events and teaching."
+    ],
+    "es": [
+      "Veronika Hryhorash es una pianista cuyo terreno natural es el repertorio clásico, de Bach y Mozart a Chopin, Rajmáninov y Prokófiev.",
+      "Siente la misma curiosidad por lo que hay más allá. Sus programas se mueven entre la sala de conciertos, la música de cine, el jazz y el tango, y reservan un lugar fijo a los compositores ucranianos, de Lýsenko a Silvéstrov y Skoryk.",
+      "Ofrece recitales, música de cámara y conciertos con orquesta, y está abierta a colaboraciones, eventos privados y clases."
+    ],
+    "uk": [
+      "Вероніка Григораш — піаністка, чий рідний ґрунт — класичний репертуар: від Баха й Моцарта до Шопена, Рахманінова та Прокоф’єва.",
+      "Їй так само цікаво те, що лежить за його межами. Її програми поєднують концертну залу з музикою кіно, джазовими стандартами й танго, а українські композитори — від Лисенка до Сильвестрова й Скорика — мають у них постійне місце.",
+      "Виступає з сольними програмами, камерною музикою та з оркестром; відкрита до співпраці, приватних подій і викладання."
+    ]
+  },
+  "location": { "en": "Based in Europe, available for travel", "es": "Con base en Europa, disponible para viajar", "uk": "Живе в Європі, відкрита до гастролей" },
+  "email": "hello@example.com",
+  "portrait": "",
+  "links": [
+    { "label": "YouTube", "url": "https://www.youtube.com/" },
+    { "label": "Instagram", "url": "https://www.instagram.com/" }
+  ]
+}

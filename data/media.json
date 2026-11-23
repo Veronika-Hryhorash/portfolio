@@ -1,0 +1,7 @@
+[
+  { "type": "photo", "src": "media/photo-1.svg", "caption": { "en": "Recital, spring", "es": "Recital, primavera", "uk": "Сольний концерт, весна" }, "year": 2026 },
+  { "type": "photo", "src": "media/photo-2.svg", "caption": { "en": "Rehearsal", "es": "Ensayo", "uk": "Репетиція" }, "year": 2026 },
+  { "type": "photo", "src": "media/photo-3.svg", "caption": { "en": "Chamber evening", "es": "Velada de cámara", "uk": "Камерний вечір" }, "year": 2025 },
+  { "type": "photo", "src": "media/photo-4.svg", "caption": { "en": "Portrait", "es": "Retrato", "uk": "Портрет" }, "year": 2025 },
+  { "type": "photo", "src": "media/photo-5.svg", "caption": { "en": "After the concert", "es": "Después del concierto", "uk": "Після концерту" }, "year": 2024 }
+]
