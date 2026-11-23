@@ -175,21 +175,50 @@ function progText() {
   return `${L(S.profile.name)}\n\n${lines.join("\n")}\n\n${fmtDur(items.reduce((s, w) => s + (+w.duration || 0), 0))}`;
 }
 
-function exportMd() {
+function exportData() {
   const coll = new Intl.Collator("en"), by = new Map();
   S.rep.forEach(w => { const g = exportGenre(w); by.has(g) || by.set(g, []); by.get(g).push(w); });
   const genres = [...by.keys()].sort((a, b) => ((EXPORT_ORDER.indexOf(a) + 1) || 99) - ((EXPORT_ORDER.indexOf(b) + 1) || 99));
-  return `---\ntitle: "VERONIKA HRYHORASH"\nsubtitle: "PIANO REPERTOIRE"\n---\n\n` + genres.map(g => {
+  return genres.map(g => {
     const au = new Map();
     by.get(g).slice().sort((a, b) => coll.compare(surname(a), surname(b)) || coll.compare(a.title.en || "", b.title.en || ""))
       .forEach(w => { const k = w.composer.en || L(w.composer); au.has(k) || au.set(k, []); au.get(k).push(w.title.en || L(w.title)); });
-    return `# ${EXPORT_ORDER.includes(g) ? EXPORT_ORDER.indexOf(g) + 1 + ". " : ""}${g}\n\n` + [...au].map(([a, ts]) => `## ${a}\n\n${ts.map(x => "- " + x).join("\n")}\n`).join("\n");
-  }).join("\n");
+    const n = EXPORT_ORDER.indexOf(g) + 1;
+    return { genre: (n ? n + ". " : "") + g, authors: [...au] };
+  });
+}
+const EXPORT_TITLE = ["VERONIKA HRYHORASH", "PIANO REPERTOIRE"];
+function exportMd() {
+  return `**${EXPORT_TITLE[0]}**\n\n**${EXPORT_TITLE[1]}**\n\n` + exportData().map(g =>
+    `# ${g.genre}\n\n` + g.authors.map(([a, ts]) => `## ${a}\n\n${ts.map(x => "- " + x).join("\n")}\n`).join("\n")).join("\n");
+}
+function loadScript(src) {
+  return new Promise((ok, fail) => { const s = document.createElement("script"); s.src = src; s.onload = ok; s.onerror = () => fail(new Error("load " + src)); document.head.append(s); });
+}
+async function exportDocx() {
+  if (!exportOn()) return;
+  if (!window.docx) await loadScript("https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.js");
+  const { Document, Packer, Paragraph, HeadingLevel, AlignmentType, TextRun } = window.docx;
+  const kids = [
+    new Paragraph({ heading: HeadingLevel.TITLE, alignment: AlignmentType.CENTER, children: [new TextRun({ text: EXPORT_TITLE[0], bold: true, color: "000000" })] }),
+    new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 400 }, children: [new TextRun({ text: EXPORT_TITLE[1], bold: true, size: 32, color: "000000" })] })
+  ];
+  exportData().forEach(g => {
+    kids.push(new Paragraph({ heading: HeadingLevel.HEADING_1, spacing: { before: 360, after: 120 }, children: [new TextRun({ text: g.genre, bold: true, color: "000000" })] }));
+    g.authors.forEach(([a, ts]) => {
+      kids.push(new Paragraph({ heading: HeadingLevel.HEADING_2, keepNext: true, children: [new TextRun({ text: a, bold: true, color: "000000" })] }));
+      ts.forEach(x => kids.push(new Paragraph({ text: x, bullet: { level: 0 } })));
+    });
+  });
+  const blob = await Packer.toBlob(new Document({ sections: [{ children: kids }] }));
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "repertoire.docx";
+  document.body.append(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
 }
 {
-  const b = $("[data-export-md]"), sync = () => { b.hidden = !exportOn(); };
+  const bm = $("[data-export-md]"), bd = $("[data-export-docx]"), sync = () => { bm.hidden = bd.hidden = !exportOn(); };
   sync(); window.addEventListener("hashchange", sync);
-  b.addEventListener("click", () => download("repertoire.md", exportMd(), "text/markdown;charset=utf-8"));
+  bm.addEventListener("click", () => download("repertoire.md", exportMd(), "text/markdown;charset=utf-8"));
+  bd.addEventListener("click", () => exportDocx().catch(err => { console.error(err); toast("Export failed"); }));
 }
 
 /* ---------- media ---------- */
