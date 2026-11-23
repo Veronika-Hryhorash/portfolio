@@ -165,7 +165,7 @@ button,input,select{font:inherit;color:inherit}
 /* cv */
 .cv-sec{padding-block:clamp(24px,3vw,40px);background-image:linear-gradient(var(--line),var(--line));background-size:calc(100% - 2*var(--gut)) 1px;background-position:top center;background-repeat:no-repeat}
 .entries{list-style:none;margin:0;padding:0}
-.entry{display:grid;grid-template-columns:8.5em minmax(0,1fr);gap:4px 20px;padding:0 0 18px}
+.entry{display:grid;grid-template-columns:11em minmax(0,1fr);gap:4px 20px;padding:0 0 18px}
 .entry .yrs{font-family:var(--serif);font-size:18px;color:var(--felt);white-space:nowrap;font-variant-numeric:lining-nums}
 .entry .what{font-size:17px}
 .entry .where{color:var(--muted);font-size:15px}
