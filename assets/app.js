@@ -34,13 +34,18 @@ async function copyText(txt) {
     document.body.append(ta); ta.select(); let ok = false; try { ok = document.execCommand("copy"); } catch (e2) {} ta.remove(); return ok;
   }
 }
-function download(name, txt) {
-  try { const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([txt], { type: "application/json" })); a.download = name; document.body.append(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500); } catch (e) {}
+function download(name, txt, mime = "application/json") {
+  try { const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([txt], { type: mime })); a.download = name; document.body.append(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500); } catch (e) {}
 }
 
 /* ---------- state ---------- */
 const S = { profile: null, cv: null, pubRep: [], pubMedia: [], rep: [], media: [] };
 const CAT_ORDER = ["baroque", "classical", "romantic", "modern", "opera", "neoclassical", "film", "musical", "jazz", "latin", "pop", "rock", "soul", "folk"];
+/* hidden export-only grouping (14 categories -> 10 genres); a work can override it with its own "exportGenre" */
+const EXPORT_ORDER = ["Baroque & Classical", "Romantic", "20th Century & Neoclassical", "Opera & Musicals", "Film, TV & Games", "Jazz & Soul", "Latin", "Pop", "Rock", "Folk & Traditional"];
+const EXPORT_GENRE = { baroque: 0, classical: 0, romantic: 1, modern: 2, neoclassical: 2, opera: 3, musical: 3, film: 4, jazz: 5, soul: 5, latin: 6, pop: 7, rock: 8, folk: 9 };
+const exportGenre = w => w.exportGenre || EXPORT_ORDER[EXPORT_GENRE[w.category]] || "Other";
+const exportOn = () => /[?&]export=true(?:&|#|$)/.test(location.search + location.hash);
 const GROUPS = [["category", "f_category", "cat_"], ["format", "f_format", "fmt_"], ["status", "f_status", "st_"], ["tags", "f_tags", "tag_"]];
 const F = Object.assign({ q: "", category: [], format: [], status: [], tags: [], sort: "composer" }, store.get("filters", {}));
 F.q = "";
@@ -155,6 +160,23 @@ function progText() {
   const items = S.rep.filter(w => prog.has(w.id));
   const lines = items.map(w => `${L(w.composer)}: ${L(w.title)}${w.catalogue ? ", " + w.catalogue : ""} (${fmtDur(w.duration)})`);
   return `${L(S.profile.name)}\n\n${lines.join("\n")}\n\n${fmtDur(items.reduce((s, w) => s + (+w.duration || 0), 0))}`;
+}
+
+function exportMd() {
+  const coll = new Intl.Collator("en"), by = new Map();
+  S.rep.forEach(w => { const g = exportGenre(w); by.has(g) || by.set(g, []); by.get(g).push(w); });
+  const genres = [...by.keys()].sort((a, b) => ((EXPORT_ORDER.indexOf(a) + 1) || 99) - ((EXPORT_ORDER.indexOf(b) + 1) || 99));
+  return genres.map(g => {
+    const au = new Map();
+    by.get(g).slice().sort((a, b) => coll.compare(surname(a), surname(b)) || coll.compare(a.title.en || "", b.title.en || ""))
+      .forEach(w => { const k = w.composer.en || L(w.composer); au.has(k) || au.set(k, []); au.get(k).push(w.title.en || L(w.title)); });
+    return `# ${g}\n\n` + [...au].map(([a, ts]) => `## ${a}\n\n${ts.map(x => "- " + x).join("\n")}\n`).join("\n");
+  }).join("\n");
+}
+{
+  const b = $("[data-export-md]"), sync = () => { b.hidden = !exportOn(); };
+  sync(); window.addEventListener("hashchange", sync);
+  b.addEventListener("click", () => download("repertoire.md", exportMd(), "text/markdown;charset=utf-8"));
 }
 
 /* ---------- media ---------- */
@@ -299,6 +321,7 @@ function saveRepForm(f) {
     composer: Object.assign({ en: d.composer_en.trim() }, d.composer_uk.trim() ? { uk: d.composer_uk.trim() } : {}, old.composer && old.composer.es ? { es: old.composer.es } : {}),
     title: { en: d.title_en.trim(), es: d.title_es.trim() || d.title_en.trim(), uk: d.title_uk.trim() || d.title_en.trim() },
     ...(old.sort ? { sort: old.sort } : {}),
+    ...(old.exportGenre ? { exportGenre: old.exportGenre } : {}),
     catalogue: d.catalogue.trim(), year: +d.year || null, category: d.category, format: d.format,
     duration: +d.duration || 0, status: d.status, tags: d.tags.split(",").map(s => s.trim()).filter(Boolean), featured: !!d.featured
   };
@@ -372,7 +395,7 @@ function intro() {
 const ROUTES = ["home", "repertoire", "media", "cv", "edit"];
 let current = "";
 function route() {
-  const r = location.hash.slice(1);
+  const r = location.hash.slice(1).split("?")[0];
   if (r && !ROUTES.includes(r)) return;
   const view = r || "home";
   if (view === current) return;
