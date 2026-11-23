@@ -1,7 +1,14 @@
 [
-  { "type": "photo", "src": "media/photo-1.svg", "caption": { "en": "Recital, spring", "es": "Recital, primavera", "uk": "Сольний концерт, весна" }, "year": 2026 },
-  { "type": "photo", "src": "media/photo-2.svg", "caption": { "en": "Rehearsal", "es": "Ensayo", "uk": "Репетиція" }, "year": 2026 },
-  { "type": "photo", "src": "media/photo-3.svg", "caption": { "en": "Chamber evening", "es": "Velada de cámara", "uk": "Камерний вечір" }, "year": 2025 },
-  { "type": "photo", "src": "media/photo-4.svg", "caption": { "en": "Portrait", "es": "Retrato", "uk": "Портрет" }, "year": 2025 },
-  { "type": "photo", "src": "media/photo-5.svg", "caption": { "en": "After the concert", "es": "Después del concierto", "uk": "Після концерту" }, "year": 2024 }
+  {"type": "photo", "src": "media/IMG_9668.jpg", "caption": {"en": "At the piano", "es": "Al piano", "uk": "За фортепіано"}, "year": 2023},
+  {"type": "video", "youtube": "https://youtu.be/hWB-QaHSDlg", "caption": {"en": "Chopin, Grand Waltz Brillante op. 18 (live)", "es": "Chopin, Gran vals brillante op. 18 (en directo)", "uk": "Шопен, Великий блискучий вальс op. 18 (наживо)"}},
+  {"type": "photo", "src": "media/IMG_5512.jpg", "caption": {"en": "Sheet music and keys", "es": "Partituras y teclas", "uk": "Ноти та клавіші"}},
+  {"type": "photo", "src": "media/IMG_1334.jpg", "caption": {"en": "Portrait", "es": "Retrato", "uk": "Портрет"}},
+  {"type": "video", "youtube": "https://youtu.be/5Y9H53BNcqE", "caption": {"en": "Showreel", "es": "Vídeo de presentación", "uk": "Відеовізитка"}},
+  {"type": "photo", "src": "media/IMG_1859.jpg", "caption": {"en": "At the piano", "es": "Al piano", "uk": "За фортепіано"}, "year": 2025},
+  {"type": "video", "youtube": "https://youtu.be/GjzLX0CVN1g", "caption": {"en": "Duo Black and White: Djawadi, Desmond, Piaf, Bizet", "es": "Dúo Black and White: Djawadi, Desmond, Piaf, Bizet", "uk": "Дует Black and White: Джаваді, Десмонд, Піаф, Бізе"}},
+  {"type": "photo", "src": "media/IMG_9678.jpg", "caption": {"en": "On the staircase", "es": "En la escalera", "uk": "На сходах"}, "year": 2023},
+  {"type": "photo", "src": "media/IMG_1089.jpg", "caption": {"en": "Aboard Aroya", "es": "A bordo del Aroya", "uk": "На борту Aroya"}, "year": 2025},
+  {"type": "video", "youtube": "https://youtu.be/CWjfZnERPlY", "caption": {"en": "Cocktail pianist demo: musicals, Latin, jazz, pop, classical", "es": "Demo de pianista de cóctel: musicales, latina, jazz, pop, clásica", "uk": "Демо коктейльної піаністки: мюзикли, латина, джаз, поп, класика"}},
+  {"type": "photo", "src": "media/IMG_9581.jpg", "caption": {"en": "Portrait at sea", "es": "Retrato en el mar", "uk": "Портрет на морі"}, "year": 2023},
+  {"type": "video", "youtube": "https://youtu.be/sVgqb3DNhH4", "caption": {"en": "Saint-Saëns, Piano Concerto No. 2 op. 22", "es": "Saint-Saëns, Concierto para piano n.º 2 op. 22", "uk": "Сен-Санс, Концерт для фортепіано № 2 op. 22"}, "embed": false}
 ]

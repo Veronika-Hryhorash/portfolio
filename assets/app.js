@@ -174,18 +174,33 @@ function tile(m, i) {
     const v = videoOf(m); if (!v) return "";
     if (v.kind === "file") return `<figure class="tile"><div class="video"><video controls preload="metadata" src="${esc(v.src)}"${m.poster ? ` poster="${esc(m.poster)}"` : ""}></video></div>${fc}</figure>`;
     const poster = m.poster || (v.kind === "yt" ? `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg` : "");
+    if (m.embed === false) { // the owner or a copyright claim blocks playback on other sites: open it on YouTube/Vimeo instead
+      const href = v.kind === "yt" ? `https://www.youtube.com/watch?v=${v.id}` : `https://vimeo.com/${v.id}`;
+      return `<figure class="tile"><a class="video" href="${href}" target="_blank" rel="noopener">${poster ? `<img src="${esc(poster)}" alt="" loading="lazy">` : ""}<span class="play" aria-hidden="true">${PLAY}</span><span class="sr">${esc(t("play") + (cap ? ": " + cap : ""))}</span></a>${fc}</figure>`;
+    }
     return `<figure class="tile"><div class="video" data-video="${i}">${poster ? `<img src="${esc(poster)}" alt="" loading="lazy">` : ""}<button type="button" class="play" data-play="${i}" aria-label="${esc(t("play") + (cap ? ": " + cap : ""))}">${PLAY}</button></div>${fc}</figure>`;
   }
   const pi = photos.indexOf(m);
   return `<figure class="tile"><button type="button" class="ph" data-lb="${pi}" aria-label="${esc(cap || t("m_photo"))}"><img src="${esc(m.src)}" alt="${esc(cap)}" loading="lazy"></button>${fc}</figure>`;
 }
+let galleryCols = 0;
+const colsFor = g => { const w = g.clientWidth || Math.min(1240, innerWidth * .9); return Math.max(1, Math.min(3, Math.floor((w + 18) / 298))); };
+function fitGallery() { const g = $("[data-gallery]"); if (g && g.clientWidth && colsFor(g) !== galleryCols) renderMedia(); }
+addEventListener("resize", fitGallery);
 function renderMedia() {
   photos = S.media.filter(m => m.type === "photo" && m.src);
   const list = S.media.filter(m => mtab === "all" || m.type === mtab);
-  const html = list.map(m => tile(m, S.media.indexOf(m))).join("");
-  $("[data-gallery]").innerHTML = html || `<p class="empty">${esc(t("media_empty"))}</p>`;
+  const g = $("[data-gallery]"), n = Math.min(galleryCols = colsFor(g), list.length || 1);
+  // items fill columns top to bottom in data order: the order in media.json decides the layout
+  const cols = []; let k = 0;
+  for (let c = 0; c < n; c++) { const size = Math.floor(list.length / n) + (c < list.length % n ? 1 : 0); cols.push(list.slice(k, k += size)); }
+  g.style.setProperty("--cols", n);
+  g.innerHTML = list.length ? cols.map(c => `<div class="gcol">${c.map(m => tile(m, S.media.indexOf(m))).join("")}</div>`).join("") : `<p class="empty">${esc(t("media_empty"))}</p>`;
   $$("[data-mtab]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.mtab === mtab)));
-  $("[data-media-preview]").innerHTML = photos.slice(0, 3).map(m => tile(m, S.media.indexOf(m))).join("");
+  const plate = $("[data-plate]"), plateSrc = plate && plate.getAttribute("src");
+  const plateItem = S.media.find(m => m.src === plateSrc);
+  if (plate && plateItem && plateItem.caption) plate.alt = L(plateItem.caption);
+  $("[data-media-preview]").innerHTML = photos.filter(m => m.src !== plateSrc).slice(0, 3).map(m => tile(m, S.media.indexOf(m))).join("");
 }
 function playVideo(i) {
   const m = S.media[i], v = videoOf(m), box = $(`[data-video="${i}"]`); if (!v || !box) return;
@@ -365,11 +380,17 @@ function route() {
   $$("[data-route]").forEach(a => a.dataset.route === view ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current"));
   if (view === "edit") renderEditor();
   if (view === "home") requestAnimationFrame(buildKeys);
+  if (view === "media") requestAnimationFrame(fitGallery);
   window.scrollTo(0, 0);
 }
 
 /* ---------- render all ---------- */
-function renderData() { renderFeatured(); renderFilters(); renderRep(); renderProg(); renderMedia(); }
+function renderFacts() {
+  const n = S.rep.length, mins = S.rep.reduce((s, w) => s + (+w.duration || 0), 0);
+  $("[data-fact-works]").textContent = n.toLocaleString(lang);
+  $("[data-fact-hours]").textContent = Math.round(mins / 60).toLocaleString(lang);
+}
+function renderData() { renderFacts(); renderFeatured(); renderFilters(); renderRep(); renderProg(); renderMedia(); }
 function renderAll() {
   renderStatic(); renderProfile(); renderData(); renderCV();
   if (current === "edit") renderEditor();
