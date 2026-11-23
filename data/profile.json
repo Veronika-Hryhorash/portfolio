@@ -3,32 +3,33 @@
   "name": { "en": "Veronika Hryhorash", "es": "Veronika Hryhorash", "uk": "Вероніка Григораш" },
   "role": { "en": "Pianist", "es": "Pianista", "uk": "Піаністка" },
   "tagline": {
-    "en": "Classical piano, and the music that lives beside it: film scores, jazz, tango and new Ukrainian works.",
-    "es": "Piano clásico y la música que vive a su lado: bandas sonoras, jazz, tango y nueva música ucraniana.",
-    "uk": "Класичне фортепіано й музика поруч із ним: кіно, джаз, танго та нова українська музика."
+    "en": "Classical piano, and the music that lives beside it: film scores, jazz and pop.",
+    "es": "Piano clásico y la música que vive a su lado: bandas sonoras, jazz y pop.",
+    "uk": "Класичне фортепіано й музика поруч із ним: кіно, джаз і поп."
   },
   "bio": {
     "en": [
-      "Veronika Hryhorash is a pianist whose home ground is the classical repertoire, from Bach and Mozart to Chopin, Rachmaninoff and Prokofiev.",
-      "She is just as curious about what lies beyond it. Her programmes move between the concert hall and film music, jazz standards and tango, and give a regular place to Ukrainian composers, from Lysenko to Silvestrov and Skoryk.",
-      "She performs solo recitals, chamber music and concertos, and is open to collaborations, private events and teaching."
+      "Veronika Hryhorash is a pianist whose home ground is the classical repertoire, from Bach to Beethoven and Chopin.",
+      "Since 2018 she has worked as a pianist on cruise ships and in hotels around the world: solo sets during dining and cocktail hours, special events, and shows with a piano quartet, singers, violin and dancers.",
+      "She is available for concerts, private events and collaborations."
     ],
     "es": [
-      "Veronika Hryhorash es una pianista cuyo terreno natural es el repertorio clásico, de Bach y Mozart a Chopin, Rajmáninov y Prokófiev.",
-      "Siente la misma curiosidad por lo que hay más allá. Sus programas se mueven entre la sala de conciertos, la música de cine, el jazz y el tango, y reservan un lugar fijo a los compositores ucranianos, de Lýsenko a Silvéstrov y Skoryk.",
-      "Ofrece recitales, música de cámara y conciertos con orquesta, y está abierta a colaboraciones, eventos privados y clases."
+      "Veronika Hryhorash es una pianista cuyo terreno natural es el repertorio clásico, de Bach a Beethoven y Chopin.",
+      "Desde 2018 trabaja como pianista en cruceros y hoteles de todo el mundo: sesiones en solitario durante cenas y cócteles, eventos especiales y espectáculos con cuarteto con piano, cantantes, violín y bailarines.",
+      "Está disponible para conciertos, eventos privados y colaboraciones."
     ],
     "uk": [
-      "Вероніка Григораш — піаністка, чий рідний ґрунт — класичний репертуар: від Баха й Моцарта до Шопена, Рахманінова та Прокоф’єва.",
-      "Їй так само цікаво те, що лежить за його межами. Її програми поєднують концертну залу з музикою кіно, джазовими стандартами й танго, а українські композитори — від Лисенка до Сильвестрова й Скорика — мають у них постійне місце.",
-      "Виступає з сольними програмами, камерною музикою та з оркестром; відкрита до співпраці, приватних подій і викладання."
+      "Вероніка Григораш — піаністка, чий рідний ґрунт — класичний репертуар: від Баха до Бетховена та Шопена.",
+      "З 2018 року працює піаністкою на круїзних лайнерах і в готелях по всьому світу: сольні сети під час вечері та коктейль-годин, особливі події, шоу з фортепіанним квартетом, вокалістами, скрипкою й танцюристами.",
+      "Відкрита до концертів, приватних подій і співпраці."
     ]
   },
-  "location": { "en": "Based in Europe, available for travel", "es": "Con base en Europa, disponible para viajar", "uk": "Живе в Європі, відкрита до гастролей" },
-  "email": "hello@example.com",
+  "location": { "en": "Based in Ukraine, available for travel", "es": "Con base en Ucrania, disponible para viajar", "uk": "Живе в Україні, відкрита до гастролей" },
+  "email": "veronikag28@ukr.net",
   "portrait": "",
   "links": [
-    { "label": "YouTube", "url": "https://www.youtube.com/" },
-    { "label": "Instagram", "url": "https://www.instagram.com/" }
+    { "label": "YouTube", "url": "https://www.youtube.com/c/veronikahryhorash" },
+    { "label": "Instagram", "url": "https://www.instagram.com/veronika__hryhorash" },
+    { "label": "LinkedIn", "url": "https://linkedin.com/in/veronika-hryhorash-52439921a" }
   ]
 }

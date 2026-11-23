@@ -1,6 +1,6 @@
 {
   "sample": false,
-  "pdf": "",
+  "pdf": "media/Veronika-Hryhorash-CV.pdf",
   "summary": {
     "en": "Classically trained pianist (National Music Academy of Ukraine, Kyiv) and laureate of international and Ukrainian competitions. Since 2018 she has worked as a cruise and hotel pianist on Royal Caribbean, Aroya, Saga, Silversea and Ponant, and at the Ritz-Carlton Osaka: solo sets, piano quartet, accompanying singers and shows with violin and dancers. Also a piano and singing teacher.",
     "es": "Pianista de formación clásica (Academia Nacional de Música de Ucrania, Kiev) y laureada en concursos internacionales y ucranianos. Desde 2018 trabaja como pianista en cruceros y hoteles: Royal Caribbean, Aroya, Saga, Silversea, Ponant y el Ritz-Carlton de Osaka. Ofrece conciertos en solitario, cuarteto con piano, acompañamiento a cantantes y espectáculos con violín y bailarines. También es profesora de piano y canto.",
@@ -12,8 +12,13 @@
       "items": [
         {
           "years": "04/2026 – 11/2026",
-          "title": { "en": "Intermissionist piano / Assistant musical director", "es": "Pianista de intermedios / Directora musical adjunta", "uk": "Піаністка-інтермішіоністка / Асистентка музичного директора" },
-          "place": { "en": "Royal Caribbean", "es": "Royal Caribbean", "uk": "Royal Caribbean" }
+          "title": { "en": "Pianist & Assistant Musical Director", "es": "Pianista y directora musical adjunta", "uk": "Піаністка та асистентка музичного директора" },
+          "place": { "en": "Royal Caribbean", "es": "Royal Caribbean", "uk": "Royal Caribbean" },
+          "note": {
+            "en": "Responsible for delivering high-quality live piano performances across various entertainment venues while supporting the Music Director in coordinating daily musical operations. Supporting communication and coordination within the music team. Assisting with sign-on procedures and onboarding of newly joined musicians.",
+            "es": "Responsable de ofrecer actuaciones de piano en directo de alta calidad en diversos espacios de entretenimiento, y de apoyar a la dirección musical en la coordinación de las operaciones musicales diarias. Apoyo a la comunicación y la coordinación dentro del equipo musical. Ayuda con los trámites de embarque y la incorporación de los músicos recién llegados.",
+            "uk": "Відповідальна за якісні живі фортепіанні виступи на різних розважальних майданчиках і підтримку музичного директора в координації щоденної музичної роботи. Сприяє комунікації та координації в музичній команді. Допомагає з процедурами посадки на судно та адаптацією нових музикантів."
+          }
         },
         {
           "years": "01/2025 – 11/2025",
