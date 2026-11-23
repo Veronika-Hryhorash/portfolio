@@ -206,8 +206,8 @@ async function exportDocx() {
   exportData().forEach(g => {
     kids.push(new Paragraph({ heading: HeadingLevel.HEADING_1, spacing: { before: 360, after: 120 }, children: [new TextRun({ text: g.genre, bold: true, color: "000000" })] }));
     g.authors.forEach(([a, ts]) => {
-      kids.push(new Paragraph({ heading: HeadingLevel.HEADING_2, keepNext: true, children: [new TextRun({ text: a, bold: true, color: "000000" })] }));
-      ts.forEach(x => kids.push(new Paragraph({ text: x, bullet: { level: 0 } })));
+      kids.push(new Paragraph({ heading: HeadingLevel.HEADING_2, keepNext: true, indent: { left: 360 }, children: [new TextRun({ text: a, bold: true, color: "000000" })] }));
+      ts.forEach(x => kids.push(new Paragraph({ text: x, bullet: { level: 0 }, indent: { left: 1080, hanging: 360 } })));
     });
   });
   const blob = await Packer.toBlob(new Document({ sections: [{ children: kids }] }));
